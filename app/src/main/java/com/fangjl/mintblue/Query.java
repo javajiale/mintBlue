@@ -69,7 +69,7 @@ public class Query extends LeftTouch {
 
         @Override
         public void onClick(View v) {
-
+                select();
 
         }
     }
