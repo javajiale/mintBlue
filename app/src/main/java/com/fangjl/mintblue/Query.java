@@ -8,8 +8,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,12 +20,16 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
-public class Query extends Activity {
+public class Query extends LeftTouch {
 
     private EditText edit = null;
     private Button search = null;
@@ -44,6 +51,9 @@ public class Query extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_query);
         init();
+
+        RelativeLayout query = (RelativeLayout) findViewById(R.id.query);
+        query.setOnTouchListener(this);
     }
 
     private void init(){
@@ -60,23 +70,77 @@ public class Query extends Activity {
         @Override
         public void onClick(View v) {
 
-            DBHelper dbHelper = new DBHelper(Query.this,"dic.db",null,1);
-            SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-            ContentValues cValue = new ContentValues();  //先只加入一个名字
-            String line = text.getText().toString();
-            int j = 0;
-            for(int i = 0;i<line.length();i++)
-                if(line.charAt(i)=='[') {
-                    j = i - 1;
-                    break;
-                }
-            cValue.put("word",line.substring(0,j));
-            db.insert("newword", null, cValue);
-            db.close();
-            Toast toast = Toast.makeText(Query.this, "加入成功!", Toast.LENGTH_SHORT);
-            toast.show();
         }
+    }
+
+    private void select(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setSingleChoiceItems(getTableName(), 0, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ListView lw = ((AlertDialog) dialog).getListView();
+                // which表示点击的条目
+                Object checkedItem = lw.getAdapter().getItem(which);
+                // 既然你没有cancel或者ok按钮，所以需要在点击item后使dialog消失
+                dialog.dismiss();
+                // 更新你的view
+                join((String)checkedItem);
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private String[] getTableName(){
+
+        List<String> data = new ArrayList<String>();
+
+        DBHelper dbHelper = new DBHelper(this,"dic.db",null,1);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        Cursor cursor = db.query("sqlite_master",new String[] {"name"},"type='table'",null,null,null,null);
+
+        while(cursor.moveToNext()) {
+            String table = cursor.getString(0);
+            if(table.equals("android_metadata")||table.equals("sqlite_sequence")||table.equals("dicInfo"))
+                continue;
+            data.add(table);
+        }
+        db.close();
+
+        String[] result = new String[data.size()];
+        for(int i = 0;i<data.size();i++){
+            result[i] = data.get(i);
+        }
+        return result;
+
+    }
+
+    private void join(String name){
+        DBHelper dbHelper = new DBHelper(Query.this,"dic.db",null,1);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        SQLiteDatabase dd = dbHelper.getReadableDatabase();
+
+        ContentValues cValue = new ContentValues();  //先只加入一个名字
+        String line = text.getText().toString();
+        int j = 0;
+        for(int i = 0;i<line.length();i++)
+            if(line.charAt(i)=='[') {
+                j = i - 1;
+                break;
+            }
+        cValue.put("word",line.substring(7,j));
+        Cursor cursor = dd.query("dicInfo",new String[] {"explain"},"word = "+"'"+line.substring(7,j)+"'",null,null,null,null);
+        cursor.moveToNext();
+        cValue.put("explain", cursor.getString(0));
+
+        db.insert(name, null, cValue);
+        db.close();
+        dd.close();
+        Toast toast = Toast.makeText(Query.this, "加入成功!", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     private class searchListener implements View.OnClickListener {

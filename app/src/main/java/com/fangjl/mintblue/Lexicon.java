@@ -3,13 +3,13 @@ package com.fangjl.mintblue;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class Lexicon  extends AppCompatActivity {
+public class Lexicon  extends RightTouch {
 
     private Button mLastButton;
     private Button mNextButton;
@@ -55,6 +55,9 @@ public class Lexicon  extends AppCompatActivity {
             }
         });
 
+
+        RelativeLayout lexion = (RelativeLayout)findViewById(R.id.lexicon);
+        lexion.setOnTouchListener(this);
 
 
     }

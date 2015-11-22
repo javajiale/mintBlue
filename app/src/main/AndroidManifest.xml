@@ -13,7 +13,7 @@
 
 
         <activity
-            android:name=".MainActivity"
+            android:name=".WelComeActivity"
 
             >
             <intent-filter>
@@ -33,12 +33,13 @@
 
         <activity android:name=".MintBlue"></activity>
 
-        <activity android:name=".Collect"></activity>
+        <activity android:name=".Manager"></activity>
 
         <activity android:name=".Select"></activity>
 
         <activity android:name=".Lexicon"></activity>
 
+        <activity android:name=".MainActivity"></activity>
 
     </application>
 

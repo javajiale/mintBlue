@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:weightSum="1"
     android:background="@drawable/bg"
+    android:id="@+id/translate"
   >
 
     <TextView

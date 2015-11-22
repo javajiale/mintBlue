@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 
-public class Translate extends AppCompatActivity {
+public class Translate extends RightTouch {
 
     private Button mFanyiButton;
     private EditText mYuanwenText;
@@ -39,6 +40,9 @@ public class Translate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
         init();
+
+        RelativeLayout translate = (RelativeLayout)findViewById(R.id.translate);
+        translate.setOnTouchListener(this);
     }
     private void init(){
         mFanyiButton = (Button)findViewById(R.id.fanyi_button);

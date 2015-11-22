@@ -24,15 +24,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
+
         DBHelper helper=new DBHelper(MainActivity.this,"dic.db",null,1);
-//
 //        try {
 //            helper.deleteDatabase(MainActivity.this);
 //            helper.createDatabase(MainActivity.this);
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
-
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, Query.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
             }
         });
 
@@ -52,14 +53,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,Translate.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
             }
         });
 
         mNewsButton = (ImageButton)findViewById(R.id.news_button);
         mNewsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,News.class);
-                startActivity(i);
+                startActivity(new Intent(MainActivity.this,News.class));
+                //动画
+                overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
             }
         });
 
@@ -68,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,Select.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
             }
         });
 
@@ -82,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         mCollectButton = (ImageButton)findViewById(R.id.collect_button);
         mCollectButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,Collect.class);
+                Intent i = new Intent(MainActivity.this,Manager.class);
                 startActivity(i);
             }
         });

@@ -7,9 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 
-public class Select extends AppCompatActivity {
+public class Select extends RightTouch {
     private Button mReciteButton;
     private Button mExiconButton;
     @Override
@@ -24,6 +25,7 @@ public class Select extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Select.this, Recite.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
             }
         });
 
@@ -33,8 +35,12 @@ public class Select extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Select.this, Lexicon.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
             }
         });
+
+        RelativeLayout select = (RelativeLayout)findViewById(R.id.select);
+        select.setOnTouchListener(this);
     }
 
 }
