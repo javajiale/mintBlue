@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/manager"
+    android:background="@drawable/bg2">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="添加生词本"
+        android:id="@+id/add_button"
+        android:layout_marginTop="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="64dp"
+        android:layout_marginStart="64dp"
+        android:background="@android:color/transparent"/>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="现在拥有的生词本为："
+        android:textColor="#000000"
+        android:id="@+id/textView"
+        android:layout_below="@+id/add_button"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="删除生词本"
+        android:id="@+id/del_button"
+        android:layout_alignBottom="@+id/add_button"
+        android:layout_toRightOf="@+id/add_button"
+        android:layout_toEndOf="@+id/add_button"
+        android:layout_marginLeft="34dp"
+        android:layout_marginStart="34dp"
+        android:background="@android:color/transparent"/>
+</RelativeLayout>

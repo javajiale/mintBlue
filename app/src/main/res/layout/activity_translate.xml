@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:background="@drawable/bg"
+    android:background="@drawable/bg2"
     android:id="@+id/translate"
   >
 
@@ -38,7 +38,8 @@
         android:layout_marginEnd="36dp"
         android:layout_below="@+id/yuanwen_text"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent"/>
 
     <TextView
         android:layout_width="wrap_content"

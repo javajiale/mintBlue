@@ -36,6 +36,8 @@ public class DBHelper extends SQLiteOpenHelper {
         this.myContext = context;
     }
 
+
+
     public void onCreate(SQLiteDatabase db) {
         //建表
     }

@@ -25,7 +25,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
@@ -131,10 +133,12 @@ public class Query extends LeftTouch {
                 j = i - 1;
                 break;
             }
-        cValue.put("word",line.substring(7,j));
+        cValue.put("word", line.substring(7, j));
         Cursor cursor = dd.query("dicInfo",new String[] {"explain"},"word = "+"'"+line.substring(7,j)+"'",null,null,null,null);
         cursor.moveToNext();
         cValue.put("explain", cursor.getString(0));
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        cValue.put("time", df.format(new Date()));
 
         db.insert(name, null, cValue);
         db.close();

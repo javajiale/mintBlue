@@ -9,7 +9,10 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
 
+import com.fangjl.mintblue.news.News;
+
 import java.io.IOException;
+
 
 public class MainActivity extends AppCompatActivity {
 

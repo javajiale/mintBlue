@@ -6,17 +6,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:weightSum="1"
-    android:background="@drawable/bg"
+    android:background="@drawable/bg2"
     android:id="@+id/recite"
     >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="apple"
-        android:id="@+id/textView10"
-        android:layout_marginTop="72dp"
+        android:id="@+id/danci_textview"
+        android:layout_marginTop="60dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -24,63 +24,75 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="苹果"
-        android:id="@+id/checkBox"
-        android:layout_marginTop="26dp"
+        android:id="@+id/ch1"
+        android:layout_marginTop="45dp"
         android:checked="false"
         android:layout_marginRight="25dp"
         android:layout_marginEnd="25dp"
-        android:layout_below="@+id/textView11"
-        android:layout_alignRight="@+id/textView10"
-        android:layout_alignEnd="@+id/textView10" />
+        android:layout_below="@+id/danci_textview"
+        android:layout_alignRight="@+id/danci_textview"
+        android:layout_alignEnd="@+id/danci_textview"
+        android:layout_alignLeft="@+id/danci_textview"
+        android:layout_alignStart="@+id/danci_textview" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="西瓜"
-        android:id="@+id/checkBox2"
+        android:id="@+id/ch2"
         android:checked="false"
-        android:layout_below="@+id/checkBox"
-        android:layout_alignLeft="@+id/checkBox"
-        android:layout_alignStart="@+id/checkBox" />
+        android:layout_below="@+id/ch1"
+        android:layout_alignLeft="@+id/ch1"
+        android:layout_alignStart="@+id/ch1"
+        android:layout_marginTop="29dp"
+        android:layout_alignRight="@+id/ch1"
+        android:layout_alignEnd="@+id/ch1" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="大香蕉"
-        android:id="@+id/checkBox3"
+        android:id="@+id/ch3"
         android:checked="false"
-        android:layout_below="@+id/checkBox2"
-        android:layout_alignLeft="@+id/checkBox2"
-        android:layout_alignStart="@+id/checkBox2" />
+        android:layout_below="@+id/ch2"
+        android:layout_alignLeft="@+id/ch2"
+        android:layout_alignStart="@+id/ch2"
+        android:layout_marginTop="34dp"
+        android:layout_alignRight="@+id/ch2"
+        android:layout_alignEnd="@+id/ch2" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="梨子"
-        android:id="@+id/checkBox4"
+        android:id="@+id/ch4"
         android:checked="false"
-        android:layout_below="@+id/checkBox3"
-        android:layout_alignLeft="@+id/checkBox3"
-        android:layout_alignStart="@+id/checkBox3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="n."
-        android:id="@+id/textView11"
-        android:layout_below="@+id/textView10"
-        android:layout_toRightOf="@+id/checkBox2"
-        android:layout_toEndOf="@+id/checkBox2" />
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/ch3"
+        android:layout_alignLeft="@+id/ch3"
+        android:layout_alignStart="@+id/ch3"
+        android:layout_alignRight="@+id/danci_textview"
+        android:layout_alignEnd="@+id/danci_textview" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="submit"
-        android:id="@+id/button3"
-        android:layout_below="@+id/checkBox4"
-        android:layout_alignLeft="@+id/checkBox4"
-        android:layout_alignStart="@+id/checkBox4"
-        android:layout_marginTop="43dp" />
+        android:text="next"
+        android:id="@+id/next_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/ch3"
+        android:layout_alignEnd="@+id/ch3"
+        android:layout_marginBottom="57dp"
+        android:background="@android:color/transparent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="true or false"
+        android:id="@+id/tf_text"
+        android:layout_above="@+id/next_button"
+        android:layout_alignLeft="@+id/ch4"
+        android:layout_alignStart="@+id/ch4" />
 
 </RelativeLayout>

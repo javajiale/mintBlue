@@ -8,42 +8,22 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CET4"
+        android:text="test"
         android:id="@+id/cet4_button"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="80dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CET6"
-        android:id="@+id/button5"
-        android:layout_below="@+id/cet4_button"
-        android:layout_alignRight="@+id/cet4_button"
-        android:layout_alignEnd="@+id/cet4_button"
-        android:layout_marginTop="48dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="IELTS"
-        android:id="@+id/button6"
-        android:layout_below="@+id/button5"
-        android:layout_alignLeft="@+id/button5"
-        android:layout_alignStart="@+id/button5"
-        android:layout_marginTop="58dp" />
+        android:layout_marginBottom="128dp"
+        android:layout_above="@+id/lexicon_button"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="lexicon"
         android:id="@+id/lexicon_button"
-        android:layout_below="@+id/button6"
-        android:layout_alignLeft="@+id/button6"
-        android:layout_alignStart="@+id/button6"
-        android:layout_marginTop="62dp"
-        android:layout_alignRight="@+id/button6"
-        android:layout_alignEnd="@+id/button6" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/cet4_button"
+        android:layout_alignStart="@+id/cet4_button"
+        android:layout_marginBottom="190dp"
+        android:background="@android:color/transparent"/>
 </RelativeLayout>

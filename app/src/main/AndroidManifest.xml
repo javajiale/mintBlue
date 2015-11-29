@@ -27,7 +27,7 @@
 
         <activity android:name=".Translate"></activity>
 
-        <activity android:name=".News"></activity>
+        <activity android:name=".news.News"></activity>
 
         <activity android:name=".Recite"></activity>
 
