@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.fangjl.mintblue.LeftTouch;
+import com.fangjl.mintblue.slide.LeftTouch;
 import com.fangjl.mintblue.R;
 
 import java.io.IOException;

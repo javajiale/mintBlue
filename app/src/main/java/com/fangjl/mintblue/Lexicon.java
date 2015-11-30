@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.fangjl.mintblue.slide.RightTouch;
+
 public class Lexicon  extends RightTouch {
 
     private Button mLastButton;

@@ -1,21 +1,18 @@
 package com.fangjl.mintblue;
 
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import junit.framework.Test;
+import com.fangjl.mintblue.slide.RightTouch;
 
 import java.util.ArrayList;
 import java.util.List;

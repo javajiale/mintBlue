@@ -9,7 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
+
+import com.fangjl.mintblue.scroll.DeleteAdapter;
+import com.fangjl.mintblue.scroll.ScrollListviewDelete;
 
 import java.util.ArrayList;
 import java.util.List;
